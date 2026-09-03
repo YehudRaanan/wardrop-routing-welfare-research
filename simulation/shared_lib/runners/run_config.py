@@ -33,7 +33,7 @@ class RunConfig:
 
     # ═══════════════════════════════════════════════════════════════
     # LOCKED PARAMETERS — DO NOT OVERRIDE
-    # Source: CLAUDE.md Simulation Standards + calibration_config.py
+    # Source: paper/main.tex Methodology + calibration_config.py
     # ═══════════════════════════════════════════════════════════════
     sim_duration_sec: int = 7200                # 120 min — LOCKED
     warmup_sec: int = 3600                      # 60 min — LOCKED

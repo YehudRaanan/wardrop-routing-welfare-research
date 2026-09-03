@@ -105,9 +105,8 @@ def _sql_authorizer(action, arg1, arg2, db_name, trigger_name):
     return sqlite3.SQLITE_OK
 
 # Database location — single source of truth in shared_lib.paths.
-# Default is C:\WardropBackups\primary\simulation.db (NTFS) post-2026-05-06
-# rebuild; overridable via WARDROP_PRIMARY_DB env var. See shared_lib/paths.py
-# for the full rationale (Drive Stream partial-write corruption).
+# Defaults to simulation/data/simulation.db and can be overridden with the
+# WARDROP_PRIMARY_DB environment variable.
 import sys as _sys
 _THIS_DIR = Path(__file__).resolve().parent
 _SHARED_LIB_DIR = _THIS_DIR.parent

@@ -30,20 +30,27 @@ These are results from a defined simulation setting, not universal policy estima
 | [`paper/figures/`](paper/figures/) | Figures used in the paper |
 | [`results/`](results/) | Aggregate result tables behind the welfare analysis |
 | [`simulation/`](simulation/) | Core SUMO model, network, validation runners, tests, and frozen validation outputs |
-| [`PUBLICATION_CHECKLIST.md`](PUBLICATION_CHECKLIST.md) | Remaining decisions before a public GitHub release |
 
 ## Reproduction scope
 
-The included code and outputs expose the model, welfare logic, network specification, and calibration evidence. The multi-gigabyte working simulation database and cloud orchestration are deliberately excluded from this publication candidate. Consequently, the aggregate tables and paper can be inspected now, while a complete raw-data regeneration requires a separate archival-data release.
+The included code and outputs expose the model, welfare logic, network specification, and calibration evidence. The multi-gigabyte working simulation database and cloud orchestration are deliberately excluded. Consequently, the aggregate tables and paper can be inspected and the database-independent logic can be tested, while complete raw-data regeneration requires a separately authorized archival-data release.
 
 Run the database-independent validation tests from `simulation/`:
 
 ```powershell
 python -m pip install -r requirements.txt
-python -m pytest tests/test_validation.py tests/test_db_schema.py
+python -m pytest tests/test_validation.py tests/test_db_schema.py -q
 ```
 
-Running the SUMO simulation additionally requires SUMO 1.26.0 and its Python package. Build the paper from `paper/` with TeX Live, `latexmk`, and Biber:
+Running the SUMO simulation additionally requires SUMO 1.26.0 and its Python package.
+
+After installing SUMO, its integration test can be run separately:
+
+```powershell
+python -m pytest tests/test_stochastic_logit.py -q
+```
+
+Build the paper from `paper/` with TeX Live, `latexmk`, and Biber:
 
 ```powershell
 .\build.ps1
@@ -55,7 +62,12 @@ Running the SUMO simulation additionally requires SUMO 1.26.0 and its Python pac
 - The System Optimum is the best allocation on the tested finite grid; at lower flows its best tested short-route share reaches the upper searched boundary.
 - Adaptive rules and comparison conditions do not isolate every possible causal mechanism.
 - Environmental, safety, noise, and accident effects are outside the welfare account.
-- The package is a publication candidate. Licensing and archival-data terms must be approved before the repository is made public.
+
+## License
+
+The simulation code is available under the [MIT License](LICENSE). The paper,
+figures, and aggregate result tables are available under
+[CC BY 4.0](LICENSE-CONTENT.md).
 
 ## Citation
 

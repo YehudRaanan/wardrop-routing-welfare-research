@@ -18,7 +18,7 @@ from typing import Any
 # SIMULATION STANDARDS (LOCKED)
 # ─────────────────────────────────────────────────────────────────────
 # These values are the project standard. Any deviation is flagged.
-# Source: CLAUDE.md Simulation Standards table.
+# Source: paper/main.tex Methodology and calibration_config.py.
 
 LOCKED_SIM_DURATION_SEC = 7200
 LOCKED_WARMUP_SEC = 3600
@@ -94,7 +94,7 @@ def validate_routes(routes: dict[str, list[str]]) -> list[str]:
 def validate_run_config(config: Any) -> list[str]:
     """Validate a RunConfig against locked simulation standards.
 
-    Checks locked parameters against CLAUDE.md standards.
+    Checks locked parameters against paper/main.tex and calibration_config.py.
     Checks method-specific requirements (e.g., EMA needs alpha).
 
     Args:
@@ -116,21 +116,21 @@ def validate_run_config(config: Any) -> list[str]:
     if sim_dur != LOCKED_SIM_DURATION_SEC:
         errors.append(
             f"sim_duration_sec={sim_dur} differs from LOCKED standard "
-            f"{LOCKED_SIM_DURATION_SEC}. Source: CLAUDE.md Simulation Standards."
+            f"{LOCKED_SIM_DURATION_SEC}. Source: paper/main.tex Methodology."
         )
 
     warmup = _get("warmup_sec", LOCKED_WARMUP_SEC)
     if warmup != LOCKED_WARMUP_SEC:
         errors.append(
             f"warmup_sec={warmup} differs from LOCKED standard "
-            f"{LOCKED_WARMUP_SEC}. Source: CLAUDE.md Simulation Standards."
+            f"{LOCKED_WARMUP_SEC}. Source: paper/main.tex Methodology."
         )
 
     step = _get("step_length", LOCKED_STEP_LENGTH)
     if abs(step - LOCKED_STEP_LENGTH) > 1e-6:
         errors.append(
             f"step_length={step} differs from LOCKED standard "
-            f"{LOCKED_STEP_LENGTH}. Source: CLAUDE.md Simulation Standards."
+            f"{LOCKED_STEP_LENGTH}. Source: paper/main.tex Methodology."
         )
 
     fwd = _get("fwd_ratio", LOCKED_FWD_RATIO)
