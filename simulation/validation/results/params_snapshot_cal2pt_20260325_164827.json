@@ -1,0 +1,22 @@
+{
+    "MU_KMH": 99.5,
+    "SIGMA_KMH": 10.0,
+    "SPEED_OFFSET_KMH": 10.0,
+    "TAU_MIN": 0.0,
+    "TAU_MAX": 3.2,
+    "TAU_GRADIENT": 0.055,
+    "TRUCK_SPEED_MEAN": 85,
+    "TRUCK_SPEED_STD": 5,
+    "TRUCK_SPEED_MAX": 90,
+    "TRUCK_PROBABILITY": 0.03,
+    "LC_OPPOSITE": 1.0,
+    "LC_SPEED_GAIN": 10.0,
+    "LC_ASSERTIVE": 5.0,
+    "LC_IMPATIENCE": 1.0,
+    "FWD_RATIO": 0.78,
+    "BWD_RATIO": 0.22,
+    "FLOW_FREE_FLOW": 500,
+    "FLOW_CONGESTED": 5500,
+    "SIM_DURATION_SEC": 7200,
+    "WARMUP_SEC": 3600
+}

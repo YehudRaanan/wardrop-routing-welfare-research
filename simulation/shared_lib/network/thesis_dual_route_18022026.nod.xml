@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Network: thesis_dual_route_18022026 (LOCKED)
+
+     Layout (top view):
+                    LONG PATH (curves UP)
+              ╭───────────────────────────────╮
+             ╱                                 ╲
+     LEFT   O─────────────────────────────────O   RIGHT
+             ╲                                 ╱
+              ╰───────────────────────────────╯
+                    SHORT PATH (curves DOWN)
+
+     - LONG path: curves through positive Y (upward)
+     - SHORT path: curves through negative Y (downward)
+     - Common junction at left (0,0) and right (4775,0)
+     - Entry queues: 1km, 2 lanes, before junction
+
+     Created: 2026-02-18
+     Status: LOCKED - Do not modify without explicit approval -->
+<nodes>
+    <!-- ============================================= -->
+    <!-- COMMON JUNCTION NODES (route choice points)  -->
+    <!-- ============================================= -->
+    <node id="node_left" x="0.0" y="0.0" type="priority"/>
+    <node id="node_right" x="4775.0" y="0.0" type="priority"/>
+
+    <!-- ============================================= -->
+    <!-- ENTRY NODES - FORWARD (left side)            -->
+    <!-- Vehicles enter here, go to node_left         -->
+    <!-- ============================================= -->
+    <node id="node_entry_long_fwd" x="-1000.0" y="100.0" type="priority"/>
+    <node id="node_entry_short_fwd" x="-1000.0" y="-100.0" type="priority"/>
+
+    <!-- ============================================= -->
+    <!-- ENTRY NODES - BACKWARD (right side)          -->
+    <!-- Vehicles enter here, go to node_right        -->
+    <!-- ============================================= -->
+    <node id="node_entry_long_bwd" x="5775.0" y="100.0" type="priority"/>
+    <node id="node_entry_short_bwd" x="5775.0" y="-100.0" type="priority"/>
+</nodes>

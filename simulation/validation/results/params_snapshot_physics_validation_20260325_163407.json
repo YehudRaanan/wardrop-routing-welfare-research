@@ -1,0 +1,21 @@
+{
+    "Script": "physics_validation_runner.py",
+    "FLOW_STEPS": [
+        500,
+        1000,
+        1500,
+        2000,
+        2500,
+        3000,
+        3500
+    ],
+    "SIM_DURATION_SEC": 7200,
+    "WARMUP_SEC": 3600,
+    "STEP_LENGTH": 0.1,
+    "BUCKET_SEC": 60,
+    "FWD_RATIO": 0.78,
+    "BWD_RATIO": 0.22,
+    "MU_KMH": 99.5,
+    "SIGMA_KMH": 10.0,
+    "Path": "Short only"
+}

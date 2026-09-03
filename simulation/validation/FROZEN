@@ -1,0 +1,5 @@
+Phase frozen on: 2026-03-19
+Git tag: phase1-validation-done
+Calibration: LOCKED (4/6 Van Aerde benchmarks pass at +/-5%)
+30-run Monte Carlo validation: COMPLETE (30 FF + 30 Cap runs, 10,000 bootstrap slopes)
+DO NOT modify any file in this directory.

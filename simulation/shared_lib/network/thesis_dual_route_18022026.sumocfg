@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SUMO configuration for thesis_dual_route_18022026 network
+
+     Network: thesis_dual_route_18022026 (LOCKED)
+     - Short path: 7.5km inner arc, bidirectional
+     - Long path: 9.375km outer arc, bidirectional
+     - Ratio: 1.25
+     - Entry queues: 1km, 2 lanes each
+     - Opposite-lane overtaking enabled
+     - Lane width: 3.5m
+
+     Created: 2026-02-18
+     Status: LOCKED - Do not modify without explicit approval -->
+<configuration>
+    <input>
+        <net-file value="thesis_dual_route_18022026.net.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="3600"/>
+        <step-length value="0.1"/>
+    </time>
+    <processing>
+        <lateral-resolution value="0.8"/>
+    </processing>
+</configuration>

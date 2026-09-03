@@ -1,0 +1,4 @@
+percentile,ff_speed,cap_speed,slope,bench_ff,bench_slope,ff_dev_pct,slope_dev_pct,ff_pass,slope_pass
+P10,89.39,78.45,-5.61,89.1,-5.5,0.32,1.96,True,True
+P50,100.63,82.79,-9.15,99.5,-9.1,1.14,0.57,True,True
+P90,110.08,89.77,-10.41,112.4,-13.4,2.07,22.3,True,False

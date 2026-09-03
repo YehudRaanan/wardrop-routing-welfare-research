@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Network: thesis_dual_route_18022026 (LOCKED 2026-02-18)
+
+     *** LOCKED - DO NOT MODIFY WITHOUT EXPLICIT USER APPROVAL ***
+
+     Layout:
+                    LONG PATH (curves UP through +Y)
+              ╭───────────────────────────────╮
+             ╱                                 ╲
+     LEFT   O─────────────────────────────────O   RIGHT
+             ╲                                 ╱
+              ╰───────────────────────────────╯
+                    SHORT PATH (curves DOWN through -Y)
+
+     Specifications:
+     - Short path: 7.5km semicircle curving downward (radius 2387.5m)
+     - Long path: 9.375km ellipse curving upward (depth 3526m)
+     - Ratio: 1.25 (long/short)
+     - Both share endpoints at (0,0) and (4775,0)
+     - Entry queues: 1km, 2 lanes each
+     - Lane width: 3.5m
+     - Speed limit: 40 m/s (144 km/h)
+     - Opposite-lane overtaking: enabled
+
+     Verified lengths (from SUMO netconvert):
+     - Short path: 7,476m (target: 7,500m, error: 0.32%)
+     - Long path: 9,348m (target: 9,375m, error: 0.29%)
+     - Ratio: 1.2504 (target: 1.25, error: 0.03%)
+
+     LOCKED: 2026-02-18 -->
+<edges>
+    <!-- ============================================= -->
+    <!-- ENTRY SECTIONS (2 lanes each)                -->
+    <!-- ============================================= -->
+
+    <!-- Long path FWD entry (upper left) -->
+    <edge id="entry_long_fwd" from="node_entry_long_fwd" to="node_left"
+          priority="1" numLanes="2" speed="40.0" width="3.5"/>
+
+    <!-- Short path FWD entry (lower left) -->
+    <edge id="entry_short_fwd" from="node_entry_short_fwd" to="node_left"
+          priority="1" numLanes="2" speed="40.0" width="3.5"/>
+
+    <!-- Long path BWD entry (upper right) -->
+    <edge id="entry_long_bwd" from="node_entry_long_bwd" to="node_right"
+          priority="1" numLanes="2" speed="40.0" width="3.5"/>
+
+    <!-- Short path BWD entry (lower right) -->
+    <edge id="entry_short_bwd" from="node_entry_short_bwd" to="node_right"
+          priority="1" numLanes="2" speed="40.0" width="3.5"/>
+
+    <!-- ============================================= -->
+    <!-- LONG PATH - CURVES UPWARD (positive Y)       -->
+    <!-- Arc length: 9.375km (ellipse, depth 3526m)   -->
+    <!-- ============================================= -->
+
+    <!-- Long FWD: left to right, curving up -->
+    <edge id="long_fwd" from="node_left" to="node_right"
+          priority="1" numLanes="1" speed="40.0" width="3.5" spreadType="roadCenter"
+          shape="0,0 36.3,612.3 144,1205.9 319.9,1762.9 558.6,2266.4 852.8,2701 1193.7,3053.5 1570.9,3313.2 1972.9,3472.3 2387.5,3525.9 2802.1,3472.3 3204.1,3313.2 3581.2,3053.5 3922.2,2701 4216.4,2266.4 4455.1,1762.9 4631,1205.9 4738.7,612.3 4775,0"/>
+
+    <!-- Long BWD: right to left, curving up (same path, adjacent lane) -->
+    <edge id="long_bwd" from="node_right" to="node_left"
+          priority="1" numLanes="1" speed="40.0" width="3.5" spreadType="roadCenter"
+          shape="4775,0 4738.7,612.3 4631,1205.9 4455.1,1762.9 4216.4,2266.4 3922.2,2701 3581.2,3053.5 3204.1,3313.2 2802.1,3472.3 2387.5,3525.9 1972.9,3472.3 1570.9,3313.2 1193.7,3053.5 852.8,2701 558.6,2266.4 319.9,1762.9 144,1205.9 36.3,612.3 0,0"/>
+
+    <!-- ============================================= -->
+    <!-- SHORT PATH - CURVES DOWNWARD (negative Y)    -->
+    <!-- Arc length: 7.5km (semicircle, radius 2387.5m) -->
+    <!-- ============================================= -->
+
+    <!-- Short FWD: left to right, curving down -->
+    <edge id="short_fwd" from="node_left" to="node_right"
+          priority="1" numLanes="1" speed="40.0" width="3.5" spreadType="roadCenter"
+          shape="0,0 36.3,-414.6 144,-816.6 319.9,-1193.7 558.6,-1534.7 852.8,-1828.9 1193.7,-2067.6 1570.9,-2243.5 1972.9,-2351.2 2387.5,-2387.5 2802.1,-2351.2 3204.1,-2243.5 3581.2,-2067.6 3922.2,-1828.9 4216.4,-1534.7 4455.1,-1193.8 4631,-816.6 4738.7,-414.6 4775,0"/>
+
+    <!-- Short BWD: right to left, curving down (same path, adjacent lane) -->
+    <edge id="short_bwd" from="node_right" to="node_left"
+          priority="1" numLanes="1" speed="40.0" width="3.5" spreadType="roadCenter"
+          shape="4775,0 4738.7,-414.6 4631,-816.6 4455.1,-1193.8 4216.4,-1534.7 3922.2,-1828.9 3581.2,-2067.6 3204.1,-2243.5 2802.1,-2351.2 2387.5,-2387.5 1972.9,-2351.2 1570.9,-2243.5 1193.7,-2067.6 852.8,-1828.9 558.6,-1534.7 319.9,-1193.7 144,-816.6 36.3,-414.6 0,0"/>
+</edges>
